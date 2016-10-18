@@ -74,7 +74,7 @@ ag_fetch <- function(problem = NULL,
     # Check if they want the "all" file
     if(!is_date(interval[1])){
         dl_rda("all", problem = problem, directory = save_dir)
-        load(file.path(save_dir, "all.rda"))
+        load(file.path(save_dir, "all.rda"), envir = .GlobalEnv)
     } else { # Only download missing days
 
         missing_days <- setdiff(paste0(interval),
