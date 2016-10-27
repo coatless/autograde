@@ -23,14 +23,14 @@
 #' ## Predict under model
 #' yhat = predict(mod)
 #'
-#' gen_ag_csv(yhat,file.name="ag_org")
+#' gen_agfile(yhat,file.name="ag_org")
 #'
 #' ## Predict under new data
 #' new = data.frame(x = seq(-3, 3, 0.5))
 #' yhat2 = predict(mod, new)
 #'
-#' gen_ag_csv(yhat2, file.name="ag_new")
-gen_ag_csv = function(yhat, file.name = "ag_sub"){
+#' gen_agfile(yhat2, file.name="ag_new")
+gen_agfile = function(yhat, file.name = "ag_sub"){
 
     if(is.null(yhat)){
         stop("`yhat` must be contain values.")
@@ -92,7 +92,7 @@ gen_ag_csv = function(yhat, file.name = "ag_sub"){
 #' yhat2 = predict(mod, new)
 #'
 #' gen_ag_csv(yhat2, prob)
-gen_agfile = function(yhat, prob, prob.dir = getwd()){
+gen_ag_csv = function(yhat, prob, prob.dir = getwd()){
 
     if(is.null(yhat)){
         stop("`yhat` must be contain values.")

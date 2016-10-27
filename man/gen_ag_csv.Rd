@@ -2,21 +2,28 @@
 % Please edit documentation in R/gen_agfile.R
 \name{gen_ag_csv}
 \alias{gen_ag_csv}
-\title{Autograde Single Column CSV File Format}
+\title{Autograde Autoformat CSV File Format}
 \usage{
-gen_ag_csv(yhat, file.name = "ag_sub")
+gen_ag_csv(yhat, prob, prob.dir = getwd())
 }
 \arguments{
-\item{yhat}{A \code{vector} of predicted \eqn{y} values.}
+\item{yhat}{A \code{vector}, \code{matrix}, \code{data.frame} of
+predicted \eqn{y} values.}
 
-\item{file.name}{A \code{string} to name the file (without a file extension).}
+\item{prob}{A \code{string} that indicates the name of the problem the
+data should conform to. This name must match a value available
+via \code{\link{get_ag_problems}}.}
+
+\item{prob.dir}{A \code{string} containing the path to where the problem
+directory is found}
 }
 \value{
-A \code{.csv} with observations on each new line written to the working
-directory given by \code{getwd()}.
+A \code{.csv} named by the problem name alongside the date and time
+the predictions were made where the observations are aligned on each new
+line written to the working directory given by \code{getwd()}.
 }
 \description{
-Creates a valid autograde file when supplied with a single prediction vector
+Creates a valid autograde file when supplied with predictions
 }
 \examples{
 
@@ -41,6 +48,6 @@ gen_ag_csv(yhat,file.name="ag_org")
 new = data.frame(x = seq(-3, 3, 0.5))
 yhat2 = predict(mod, new)
 
-gen_ag_csv(yhat2, file.name="ag_new")
+gen_ag_csv(yhat2, prob)
 }
 
