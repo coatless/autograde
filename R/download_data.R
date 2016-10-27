@@ -1,6 +1,4 @@
-#' @importFrom utils download.file
-#' @importFrom tools file_path_sans_ext
-"_PACKAGE"
+
 
 base_url  <- "https://rstudio.stat.illinois.edu/"
 
@@ -35,7 +33,7 @@ base_url  <- "https://rstudio.stat.illinois.edu/"
 ag_fetch <- function(problem = NULL,
                      when = c("last-day", "last-week",
                               "last-month", "start-day"),
-                     from = Sys.Date(), to = Sys.date(),
+                     from = Sys.Date(), to = Sys.Date(),
                      save_dir = getwd()) {
 
     # Verify we have a problem to grab

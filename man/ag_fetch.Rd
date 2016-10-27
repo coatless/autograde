@@ -5,7 +5,7 @@
 \title{Fetch Data Used in Autograder}
 \usage{
 ag_fetch(problem = NULL, when = c("last-day", "last-week", "last-month",
-  "start-day"), from = Sys.Date(), to = Sys.date(), save_dir = getwd())
+  "start-day"), from = Sys.Date(), to = Sys.Date(), save_dir = getwd())
 }
 \arguments{
 \item{problem}{A \code{string} indicating the problem to obtain
