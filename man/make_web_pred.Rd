@@ -4,7 +4,7 @@
 \alias{make_web_pred}
 \title{Make Web Predictions}
 \usage{
-make_web_pred(rcpp, ggplot2, stringr, dplyr)
+make_web_pred(Rcpp, ggplot2, stringr, dplyr)
 }
 \arguments{
 \item{Rcpp, ggplot2, stringr, dplyr}{A single \code{numeric} value for each of the parameters.}

@@ -15,7 +15,7 @@
 #'
 #' make_web_pred(Rcpp, ggplot2, stringr, dplyr)
 #' }
-make_web_pred = function(rcpp, ggplot2, stringr, dplyr){
+make_web_pred = function(Rcpp, ggplot2, stringr, dplyr){
 
     a = list(Rcpp, ggplot2, stringr, dplyr)
 
