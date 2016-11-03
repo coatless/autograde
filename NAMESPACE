@@ -2,6 +2,9 @@
 
 export(ag_fetch)
 export(gen_agfile)
+export(make_ci_pred)
+export(make_pred)
+export(make_weather_pred)
 export(make_web_pred)
 importFrom(tools,file_path_sans_ext)
 importFrom(utils,download.file)
