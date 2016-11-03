@@ -39,25 +39,25 @@ make_web_pred = function(Rcpp, ggplot2, stringr, dplyr){
 #' Make Weather Predictions
 #'
 #' Creates a valid autograde file for Weather Project
-#' @param hi,lo,mean A single \code{numeric} value for each of the parameters.
+#' @param high,low,mean A single \code{numeric} value for each of the parameters.
 #' @return A \code{.csv} with observations on each new line written to the working
 #' directory given by \code{getwd()}.
 #' @export
 #' @examples
 #' \dontrun{
 #' # Make some predictions
-#' make_weather_pred(hi = 1, lo = 2, mean = 3)
+#' make_weather_pred(high = 1, low = 2, mean = 3)
 #' }
-make_weather_pred = function(hi,lo,mean){
+make_weather_pred = function(high, low, mean){
 
-    a = list(hi,lo,mean)
+    a = list(high, low, mean)
 
     stopifnot(all(sapply(a, length) == 1L))
 
     message("Creating a 1 x 3 matrix with order:")
-    message("hi, lo, mean...")
+    message("high, low, mean...")
 
-    yhat = matrix(c(hi,lo,mean), nrow = 1, ncol = 3)
+    yhat = matrix(c(high, low, mean), nrow = 1, ncol = 3)
 
     now = Sys.time()
     # Remove file extension

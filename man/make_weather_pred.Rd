@@ -4,10 +4,10 @@
 \alias{make_weather_pred}
 \title{Make Weather Predictions}
 \usage{
-make_weather_pred(hi, lo, mean)
+make_weather_pred(high, low, mean)
 }
 \arguments{
-\item{hi, lo, mean}{A single \code{numeric} value for each of the parameters.}
+\item{high, low, mean}{A single \code{numeric} value for each of the parameters.}
 }
 \value{
 A \code{.csv} with observations on each new line written to the working
@@ -19,7 +19,7 @@ Creates a valid autograde file for Weather Project
 \examples{
 \dontrun{
 # Make some predictions
-make_weather_pred(hi = 1, lo = 2, mean = 3)
+make_weather_pred(high = 1, low = 2, mean = 3)
 }
 }
 
