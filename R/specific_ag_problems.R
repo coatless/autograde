@@ -116,7 +116,7 @@ make_ci_pred = function(ci90, ci95, ci99){
 #' }
 make_pred = function(x){
 
-    stopifnot(length(x) != 10L)
+    stopifnot(length(x) == 10L)
 
     message("Creating a 10 x 1 matrix with order:")
     message("t = n + 1, t = n + 2, ... , t = n + 10")
