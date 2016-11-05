@@ -12,7 +12,7 @@ predicted \eqn{y} values.}
 
 \item{prob}{A \code{string} that indicates the name of the problem the
 data should conform to. This name must match a value available
-via \code{\link{get_ag_problems}}.}
+via ....}
 
 \item{prob.dir}{A \code{string} containing the path to where the problem
 directory is found}
@@ -42,12 +42,12 @@ mod = lm(y~x)
 ## Predict under model
 yhat = predict(mod)
 
-gen_ag_csv(yhat,file.name="ag_org")
+gen_ag_csv(yhat, "test-proj")
 
 ## Predict under new data
 new = data.frame(x = seq(-3, 3, 0.5))
 yhat2 = predict(mod, new)
 
-gen_ag_csv(yhat2, prob)
+gen_ag_csv(yhat2, "test-proj")
 }
 

@@ -6,7 +6,7 @@
 \alias{autograde-package}
 \title{Tools for use with Autograder}
 \description{
-Provides local and remote computational components of the
-autograder
+Provides local and remote computational components for use with
+the autograder platform.
 }
 

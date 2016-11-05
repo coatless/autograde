@@ -1,15 +1,18 @@
 Package: autograde
 Title: Tools for use with Autograder
-Version: 0.0.0.9000
+Version: 0.0.1.1000
 Authors@R: person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre"))
-Description: Provides local and remote computational components of the
-    autograder
+Description: Provides local and remote computational components for use with 
+    the autograder platform.
 Depends:
     R (>= 3.3.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+    rops,
     tools,
     utils
 RoxygenNote: 5.0.1
+Remotes:
+    coatless/rops

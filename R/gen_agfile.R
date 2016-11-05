@@ -62,12 +62,13 @@ gen_agfile = function(yhat, file.name = "ag_sub"){
 #'                  predicted \eqn{y} values.
 #' @param prob      A \code{string} that indicates the name of the problem the
 #'                  data should conform to. This name must match a value available
-#'                  via \code{\link{get_ag_problems}}.
+#'                  via ....
 #' @param prob.dir  A \code{string} containing the path to where the problem
 #'                  directory is found
 #' @return A \code{.csv} named by the problem name alongside the date and time
 #' the predictions were made where the observations are aligned on each new
 #' line written to the working directory given by \code{getwd()}.
+#' @export
 #' @examples
 #'
 #' # Set seed for reproducibility
@@ -85,30 +86,27 @@ gen_agfile = function(yhat, file.name = "ag_sub"){
 #' ## Predict under model
 #' yhat = predict(mod)
 #'
-#' gen_ag_csv(yhat,file.name="ag_org")
+#' gen_ag_csv(yhat, "test-proj")
 #'
 #' ## Predict under new data
 #' new = data.frame(x = seq(-3, 3, 0.5))
 #' yhat2 = predict(mod, new)
 #'
-#' gen_ag_csv(yhat2, prob)
+#' gen_ag_csv(yhat2, "test-proj")
 gen_ag_csv = function(yhat, prob, prob.dir = getwd()){
 
     if(is.null(yhat)){
         stop("`yhat` must be contain values.")
     }
 
-    if(!(is.matrix(yhat) || is.data.frame(yhat))){
+    if(!(is.atomic(yhat) || is.matrix(yhat) || is.data.frame(yhat))){
         stop("`yhat` must either be a vector or a data.frame/matrix")
     }
 
     ## add logic here
 
-    # Remove file extension
-    file.name = tools::file_path_sans_ext(base::basename(file.name))
-
-    write.table(yhat, file = paste0(file.name,".csv"), sep = ",",  row.names = F, col.names = F)
-    message("Wrote prediciton file ", file.name,".csv to directory ", getwd(), ".")
+    write.table(yhat, file = paste0(prob,".csv"), sep = ",",  row.names = F, col.names = F)
+    message("Wrote prediciton file ", prob,".csv to directory ", getwd(), ".")
     message(">> Remember to submit the file to the autograder! <<")
 }
 
