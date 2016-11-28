@@ -12,18 +12,18 @@
 #' make_hourly_pred(hourly)
 #' }
 make_hourly_pred = function(hourly){
-  
+
   stopifnot(length(hourly) == 24L)
-  
+
   message("Creating a 24 x 1 matrix with order:")
   message("00:00, 01:00, ..., 23:00")
-  
-  yhat = matrix(c(hourly), nrow = 1, ncol = 4)
-  
+
+  yhat = matrix(c(hourly), nrow = 24, ncol = 1)
+
   now = Sys.time()
   # Remove file extension
   file.name = paste0("hourly_pred_", format(now, format="%Y_%m_%d_%I_%M_%S_%p"))
-  
+
   write.table(yhat, file = paste0(file.name,".csv"), sep = ",",  row.names = F, col.names = F)
   message("Wrote prediciton file ", file.name,".csv to directory ", getwd(), ".")
   message(">> Remember to submit the file to the autograder! <<")
