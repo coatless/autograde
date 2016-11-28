@@ -1,3 +1,34 @@
+#' Make Hourly Predictions
+#'
+#' Creates a valid autograde file for hourly  project
+#' @param hourly A \code{numeric} vector with 24 values.
+#' @return A \code{.csv} with observations on each new line written to the working
+#' directory given by \code{getwd()}.
+#' @export
+#' @examples
+#' \dontrun{
+#' # Make some predictions
+#' hourly = 1:24
+#' make_hourly_pred(hourly)
+#' }
+make_hourly_pred = function(hourly){
+  
+  stopifnot(length(hourly) == 24L)
+  
+  message("Creating a 24 x 1 matrix with order:")
+  message("00:00, 01:00, ..., 23:00")
+  
+  yhat = matrix(c(hourly), nrow = 1, ncol = 4)
+  
+  now = Sys.time()
+  # Remove file extension
+  file.name = paste0("hourly_pred_", format(now, format="%Y_%m_%d_%I_%M_%S_%p"))
+  
+  write.table(yhat, file = paste0(file.name,".csv"), sep = ",",  row.names = F, col.names = F)
+  message("Wrote prediciton file ", file.name,".csv to directory ", getwd(), ".")
+  message(">> Remember to submit the file to the autograder! <<")
+}
+
 #' Make Web Predictions
 #'
 #' Creates a valid autograde file for web analytics project
